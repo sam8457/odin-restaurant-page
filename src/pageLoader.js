@@ -1,8 +1,8 @@
 
 class pageLoader {
     
-    static loadPage(content) {
-        // let content = document.getElementById('content')
+    static loadPage() {
+        let content = document.getElementById('content')
 
         content.innerHTML = `
         <div class="article">
