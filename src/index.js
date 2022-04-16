@@ -2,8 +2,10 @@
 import './style.css'
 import { mainLoader} from "./mainLoader"
 import { menuLoader } from "./menuLoader"
+import { supportLoader } from './supportLoader'
 
 const tabs = [...document.getElementsByClassName('tab')]
+const pageFunctions = [mainLoader.loadPage, menuLoader.loadPage, supportLoader.loadPage]
 
 for (const tab in tabs) {
     let thisTab = tabs[tab]
@@ -12,7 +14,9 @@ for (const tab in tabs) {
         focus.classList.remove('focus')
 
         thisTab.classList.add('focus')
+
+        pageFunctions[tab]()
     }
 }
 
-menuLoader.loadPage()
+mainLoader.loadPage()
